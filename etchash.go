@@ -449,7 +449,7 @@ func (l *Light) Verify(block Block) bool {
 		dagSize = dagSizeForTesting
 	}
 	// Recompute the hash using the cache.
-	mixDigest, result := cache.compute(uint64(dagSize), block.HashNoNonce(), block.Nonce())
+	_, result := cache.compute(uint64(dagSize), block.HashNoNonce(), block.Nonce())
 
 	// The actual check.
 	target := new(big.Int).Div(maxUint256, difficulty)
